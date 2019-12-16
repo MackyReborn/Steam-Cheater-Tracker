@@ -42,9 +42,3 @@ else:
 
 
 functions.saveProfiles()
-
-'''
-checkBan("https://steamcommunity.com/id/macky_")
-checkBan("https://steamcommunity.com/id/willashley/")
-checkBan("https://steamcommunity.com/profiles/76561198044592759")
-'''
