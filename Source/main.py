@@ -16,7 +16,7 @@ elif choice == 2:
 
 elif choice == 3:
     functions.listProfiles()
-    profileEntry = int(input("\n"))
+    profileEntry = int(input("\n")) - 1
     
     x = int(input("\nPlease Select: \n1)Open Profile\n2)Check Ban Status\n"))
 
@@ -29,9 +29,12 @@ elif choice == 3:
         print("Invalid Input. . .")
 
 elif choice == 4:
+    print('\n')
     for x in range(len(functions.profiles)):
-        functions.checkBan(functions.getProfileEntry(x))
-        print(functions.getProfileEntry(x), "\n")
+        profileEntryx = str(functions.getProfileEntry(x))
+        print(functions.getAlias(profileEntryx))
+        functions.checkBan(profileEntryx)
+        print('\n')
 
 elif choice == 5:
     exit(0)

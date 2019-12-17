@@ -1,5 +1,6 @@
 import webbrowser
 import os
+import sys
 import time
 import string
 import array
@@ -7,6 +8,24 @@ import requests
 from bs4 import BeautifulSoup
 
 profiles = []
+
+def getAlias(url):
+    y = url.replace("\n", "")
+    res = requests.get(y)
+    steam_page = res.content
+    soup = BeautifulSoup(steam_page, 'html.parser')
+    persona = soup.find('span', class_='actual_persona_name')
+
+    stringpersona = str(persona)
+
+    alias = stringpersona.replace('<span class="actual_persona_name">', '')
+    alias = alias.replace('</span>', '')
+
+    non_bmp_map = dict.fromkeys(range(0x10000, sys.maxunicode + 1), 0xfffd)
+    alias = alias.translate(non_bmp_map)
+
+    return alias
+
 
 def readProfiles():
     theFile = open("profiles.txt", "r")
@@ -24,7 +43,8 @@ def openProfile(url):
 
 def listProfiles():
     for entry in profiles:
-        print(entry)
+        entry.replace('\n', '')
+        print(entry, getAlias(entry), '\n')
 
 
 def addProfile(profile):
