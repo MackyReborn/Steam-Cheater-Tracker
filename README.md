@@ -11,4 +11,4 @@ Python 3
 
 ## Running
 
-Open a terminal (or Powershell on Windows) in the folder where installed and type: ```python main.py```
+Open a terminal (or Powershell on Windows) in the source folder where downloaded and type: ```python main.py```
