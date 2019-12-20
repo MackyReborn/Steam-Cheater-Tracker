@@ -5,7 +5,6 @@ import json
 import time
 import string
 import array
-import valve
 import requests
 from bs4 import BeautifulSoup
 
