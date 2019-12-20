@@ -1,9 +1,14 @@
-# Steam-Cheater-Tracker
-Python Steam Account Tracker
+# Steam-Cheater-Tracker [![Python](https://img.shields.io/badge/python-v3.7-blue)](https://en.wikipedia.org/wiki/Python_(programming_language))
+Python Steam Account Tracker, Designed for Counter-Strike Global Offensive
 
-This is a utility to track potential cheaters. It is tailored towards Counter-Strike: Global Offensive but can work in any game.
+## Getting Started
 
-WIP:
-  Adding more features to list clients,
-  automatically getting permenant steam links for clients,
-  integrating the Steam API.
+``` git clone https://github.com/MackyReborn/Steam-Cheater-Tracker.git ```
+
+### Prerequisites
+
+Python 3
+
+## Running
+
+Open a terminal (or Powershell on Windows) in the source folder where downloaded and type: ```python main.py```
