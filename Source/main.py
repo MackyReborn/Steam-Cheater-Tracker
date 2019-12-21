@@ -51,7 +51,11 @@ elif choice == 3:
 elif choice == 4:
     print('\n')
     for x in range(len(functions.profiles)):
-        profileEntryx = str(functions.getProfileEntry(x))
+        try:
+            profileEntryx = str(functions.getProfileEntry(x))
+        except:
+            print("Profile could not be resolved.")
+            continue
         alias = functions.getAlias(profileEntryx)
         try:
             print(alias)

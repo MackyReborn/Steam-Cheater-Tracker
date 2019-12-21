@@ -152,6 +152,12 @@ def checkBan(url):
     elif output.find("VAC ban on record") > -1:
         print("Account is VAC Banned")
         return True
+    elif output.find("VAC bans on record") > -1:
+        print("Account is VAC Banned")
+        return True
+    elif output.find("game bans on record") > -1:
+        print("Account is Overwatch Banned")
+        return True
     else:
         print("Account is not Banned")
         return False
