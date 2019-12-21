@@ -4,8 +4,8 @@ import config
 import functions
 
 functions.readProfiles()
-config = config.init()
 functions.removeDuplicates()
+config = config.init()
 
 
 print("Welcome to the Cheater Tracker Written by Macky in Python\n")
@@ -17,11 +17,17 @@ if config[1] == True:
 else:
     choice = int(input())
 
-if choice == 1:
+if choice == 1 and config[3] == False:
     profile = input("Enter Profile URL to Add: ")
-    functions.addProfile(profile)
+    
+    if config[2] == True:
+        prof = functions.getPermenantURL(profile) + '\n'
+    else:
+        prof = profile
 
-elif choice == 2:
+    functions.addProfile(prof)
+
+elif choice == 2 and config[4] == False:
     prof = input("\nEnter Profile URL to Remove: ")
     functions.removeProfile(prof)
 
@@ -57,8 +63,34 @@ elif choice == 4:
 elif choice == 5:
     exit(0)
 
+elif choice == 1 and config[3] == True:
+    print("Enter 'x' to Stop\n")
+    while True:
+        profile = input("")
+
+        if profile == 'x':
+            break
+
+        if config[2] == True:
+            prof = functions.getPermenantURL(profile) + '\n'
+        else:
+            prof = profile
+
+        functions.addProfile(prof)
+
+elif choice == 2 and config[4] == True:
+    print("Enter 'x' to Stop\n")
+    while True:
+        prof = input("Enter Profile URL to Remove: ")
+        
+        if prof == 'x':
+            break
+
+        functions.removeProfile(prof)
+
 else:
     print("Invalid Input. . . ")
     exit(-1)
+
 
 functions.saveProfiles()

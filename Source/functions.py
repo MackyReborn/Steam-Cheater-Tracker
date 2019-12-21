@@ -56,7 +56,6 @@ def getPermenantURL(url):
     return plink
 
 
-
 def checkDuplicates(profile):
     if profiles.count(profile) > 1:
         return True
@@ -94,8 +93,7 @@ def listProfiles():
 
 
 def addProfile(profile):
-    permUrl = getPermenantURL(profile)
-    profiles.append(permUrl)
+    profiles.append(profile)
 
 
 def removeProfile(prof):

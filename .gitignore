@@ -1,3 +1,6 @@
 
 profiles - Copy.txt
 *.pyc
+*.pyc
+Source/__pycache__/config.cpython-37.pyc
+Source/__pycache__/functions.cpython-37.pyc

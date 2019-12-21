@@ -1,4 +1,7 @@
 {
     "autodelete" : true,
-    "autorun" : false
+    "autorun" : false,
+    "autoConvertUrls" : true,
+    "bulkAdd" : false,
+    "bulkRemove" : false
 }
