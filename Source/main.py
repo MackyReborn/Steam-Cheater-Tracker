@@ -1,6 +1,7 @@
-import functions
 import sys
+
 import config
+import functions
 
 functions.readProfiles()
 config = config.init()
@@ -59,6 +60,5 @@ elif choice == 5:
 else:
     print("Invalid Input. . . ")
     exit(-1)
-
 
 functions.saveProfiles()

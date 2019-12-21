@@ -1,10 +1,11 @@
-import webbrowser
-import os
-import sys
-import json
-import time
-import string
 import array
+import json
+import os
+import string
+import sys
+import time
+import webbrowser
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -29,23 +30,31 @@ def getAlias(url):
 
     return alias
 
-
-def addUser(url):
-    return True
-
 '''
+def convertUrls():
+    resultantUrls = []
+    for profile in profiles:
+        if profile == '\n':
+            continue
+        permUrl = getPermenantURL(profile)
+        profiles.remove(profile)
+        resultantUrls.append(permUrl)
+
+    for url in resultantUrls:
+        profiles.append(url)
+'''
+
 def getPermenantURL(url):
-    if url.find('profiles') > -1:
-        return url
     y = url.replace('\n', '')
-    rurl = "https://steamid.xyz/" + y
-
-    res = requests.get(rurl)
-    page = res.content
+    x = 'https://steamid.xyz/' + y
+    html_page = requests.get(x)
+    page = html_page.content
     soup = BeautifulSoup(page, 'html.parser')
+    tlink = soup.select('input[type="text"]')[6]
+    plink = tlink.get('value')
 
-    iurl = soup.findAll('input')
-'''
+    return plink
+
 
 
 def checkDuplicates(profile):
@@ -85,7 +94,8 @@ def listProfiles():
 
 
 def addProfile(profile):
-    profiles.append(profile)
+    permUrl = getPermenantURL(profile)
+    profiles.append(permUrl)
 
 
 def removeProfile(prof):
