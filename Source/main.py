@@ -21,7 +21,10 @@ if choice == 1 and config[3] == False:
     profile = input("Enter Profile URL to Add: ")
     
     if config[2] == True:
-        prof = functions.getPermenantURL(profile) + '\n'
+        try:
+            prof = functions.getPermenantURL(profile) + '\n'
+        except:
+            print("Error adding selected profile.")
     else:
         prof = profile
 
@@ -72,7 +75,11 @@ elif choice == 1 and config[3] == True:
             break
 
         if config[2] == True:
-            prof = functions.getPermenantURL(profile) + '\n'
+            try:
+                prof = functions.getPermenantURL(profile) + '\n'
+            except:
+                print("Error converting profile to permanent URL, storing regular URL.")
+                prof = profile
         else:
             prof = profile
 
